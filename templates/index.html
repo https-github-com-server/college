@@ -1,0 +1,416 @@
+<html></html>
+<head>
+    <meta charset="utf-8">
+    <title>Vidyavardhaka College of Engineering
+       
+        </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
+    <img src="" alt="" srcset="">
+    <meta charset="UTF-8">
+    <style>
+.select {
+  width: 500%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+
+    </style>
+
+    <!-- Favicon -->
+    <link href="static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+ 
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="static/text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+
+    <script type="static/text/javascript" src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+
+    
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+ 
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
+        <a href="https://vvce.ac.in/" class="navbar-brand d-flex align-items-center">
+            <h6 class="m-0 text-primary"><img class="img-fluid me-2" src="https://vvce.ac.in/wp-content/uploads/2020/03/vvce-logo.png" alt=""
+                    style="width: 50px;"><h3 style="color: blue
+                    ;">Vidyavardhaka College of Engineering</h3>
+                   
+                    </h6>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-4 py-lg-0">
+                <a href="{{url_for('home')}}" class="nav-item nav-link active" data-toggle="#myModal">Home</a>
+              
+            
+                
+            </div>
+    <button type="button" class="btn btn-success  pull-right" data-toggle="modal" data-target="#myModal" style="text-align: center;">Select your course</button>
+          <br>
+        
+        </div>
+    </nav>
+   
+  
+
+
+
+  {% if course %}
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+            
+                <h1 class="display-6"> Mandatory Courses</h1>
+               
+            </div>
+      
+                <div class="row g-4">
+                    {% for data in man %}
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="service-item bg-white p-5">
+                            <img class="img-fluid mb-4" src="data:image/jpeg;base64,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" alt="">
+                            <h5 class="mb-3">{{data.name}}</h5>
+                           
+                            <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo
+                                justo</p>
+                            <a href="https://vvce.ac.in/department/computer-science-engineering/">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+               
+                
+                </div>
+            </div>
+
+
+
+            
+            <br>
+            
+        </div>
+
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                
+                    <h1 class="display-6">Emerging Technology Courses</h1>
+                   
+                </div>
+          
+                    <div class="row g-4">
+                        {% for data in EmergingTechnologyCourses %}
+                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="service-item bg-white p-5">
+                                <img class="img-fluid mb-4" src="data:image/jpeg;base64,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" alt="">
+                                <h5 class="mb-3">{{data.name}}</h5>
+                               
+                                <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo
+                                    justo</p>
+                                <a href="https://vvce.ac.in/department/computer-science-engineering/">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                   
+                    
+                    </div>
+                </div>
+    
+    
+    
+                
+                <br>
+                
+            </div>
+        <div id="myModal" class="modal fade" role="dialog">
+
+
+            <div class="modal-dialog">
+
+
+                <div class="modal-content">
+
+
+                    <div class="modal-header">
+
+
+                        <button type="button" class="close" data-dismiss="modal">Close</button>
+
+
+                     
+
+
+                    </div>
+
+
+                    <div class="modal-body">
+
+                        <form action="{{ url_for('insert') }}" method="POST">
+
+
+                            <div class="form-group">
+
+
+                                <label>Phone:</label>
+                                <input type="number" name="Phone" required="10">
+                            </div>
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input type="text" class="form-control" name="Email" required="1">
+
+
+                            </div>
+
+
+                            <div class="form-group">
+
+
+                                <label>Name:</label>
+                                <input type="text" class="form-control" name="Name" required="1">
+
+
+                            </div>
+
+
+                            <div class="form-group">
+
+
+                                <label>Emerging Technology Courses</label>
+                    
+                                    <select name="Emerging Technology Courses" >
+                                        {% for o in data_course %}
+                                        <option value="{{ o.name }}">{{ o.name }}</option>
+                                        {% endfor %}
+                                      </select>
+                                  </select>
+                                  <br><br>
+                               
+
+
+                            </div>
+
+                            <div class="form-group">
+
+
+                                <label>{{head}} </label>
+                               
+                                   
+                                    <select name="Emerging Science Courses" >
+                                        {% for o in data_course_science %}
+                                        <option value="{{ o.name }}">{{ o.name }}</option>
+                                        {% endfor %}
+                                      </select>
+                                  </select>
+                                  </select>
+                                  <br><br>
+                               
+
+
+                            </div>
+
+
+
+                            <div class="form-group">
+
+
+                                <button class="btn btn-primary" type="submit">Insert Data</button>
+
+
+                            </div>
+
+
+                        </form>
+
+
+                    </div>
+
+
+                    <div class="modal-footer">
+
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</div>
+</div>
+    </div>
+    <!-- Features End -->
+  
+    <!-- Service Start -->
+    <div class="container-xxl bg-light py-5 my-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-6">{{head}}  </h1>
+                <p class="text-primary fs-5 mb-5">              </p>
+            </div>
+            <div class="row g-4">
+                {% for data in data %}
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-white p-5">
+                        <img class="img-fluid mb-4" src="static/img/icon-7.webp" alt="">
+                        <h5 class="mb-3">{{data.name}}</h5>
+                       
+                        <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo
+                            justo</p>
+                        <a href="https://vvce.ac.in/department/computer-science-engineering/">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+                
+        </div>
+  
+       
+    </div>
+
+ {%  else %}
+ {% with messages = get_flashed_messages() %}
+ {% if messages %}
+ <ul>
+    {% for message in messages %}
+    <h4 align="center">{{ message }}</h4>
+     <img src="https://64.media.tumblr.com/2fc1fb0d29474bf3fea84958c0ffa789/6d76c4a2f80e2cdb-30/s540x810/10caaefc44745c6db10774766d0516be18827aeb.png" class="select">
+    {% endfor %}
+    </ul>
+    {%else%}
+ <form action="{{url_for('course')}}" method="post">
+    <h3 align="center" style="color: blue;font-size: 70px;" ><a href="https://pbs.twimg.com/media/EyxncemVcAcTfZh.jpg">Hola como estas <br> Please select your branch</a></h4>
+
+    <div class="select" >
+      
+        
+             
+                  <select id="1" name="comp_select" class="cente" style="font-size: 22px;" name="board">
+                    
+                    <option hidden value="default">Select An Option</option>
+
+                    {% for o in data %}
+                    <option value="{{ o.name }}">{{ o.name }}</option><p>dffff</p>
+                    {% endfor %}
+                  </select>
+
+       
+      </div>
+      <button type="submit" class="select" align="center">SUBMIT</button>
+
+
+
+
+
+  
+       
+      {% endif %}
+     {% endwith %}
+ </form>
+
+
+ <table align="center" style="border: 2px solid;">
+    <thead>
+      <tr style="background-color: #7cc3a97d">
+        <th style="color: white">Courses</th>
+
+        <br>
+        <th style="color: white">The number of student enrolled</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for key, value in result.items() %}
+     <tr style="background-color:aliceblue">
+         <td style="padding: 0.5rem"> {{ key }} </td>
+         <td style="padding: 0.5rem ;text-align: center;"> {{ value }} </td>
+     </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+
+ {%   endif %}
+
+       
+
+
+ 
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/lib/wow/wow.min.js"></script>
+    <script src="static/lib/easing/easing.min.js"></script>
+    <script src="static/lib/waypoints/waypoints.min.js"></script>
+    <script src="satic/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="static/lib/counterup/counterup.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/grayscale.js"></script>
+    <!-- Template Javascript -->
+    <script src="static/js/main.js"></script>
+</body>
+
